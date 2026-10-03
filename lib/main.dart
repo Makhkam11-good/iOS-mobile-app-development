@@ -24,6 +24,7 @@ class ProfileCardScreen extends StatefulWidget{
 
 class _ProfileCardScreenState extends State<ProfileCardScreen>{
   bool _isFollowing = false;
+  bool _isLiking = false;
   int _followerCount = 1320;
   int _likesCount = 120;
 
@@ -112,8 +113,8 @@ class _ProfileCardScreenState extends State<ProfileCardScreen>{
                     SizedBox(width: 12),
                     OutlinedButton.icon(
                       onPressed: _incrementLike,
-                      icon: Icon(Icons.favorite),
-                      label: Text('Like'),
+                      icon: Icon(_isLiking ? Icons.check : Icons.favorite),
+                      label: Text(_isLiking ? 'Liked' : 'Like'),
                     ),
                 
                   ],
@@ -150,7 +151,12 @@ class _ProfileCardScreenState extends State<ProfileCardScreen>{
 
   void _incrementLike(){
     setState((){
-      _likesCount++;
+      _isLiking = !_isLiking;
+      if(_isLiking){
+        _likesCount++;
+      } else{
+        _likesCount--;
+      }
     });
   }
 
@@ -160,6 +166,7 @@ class _ProfileCardScreenState extends State<ProfileCardScreen>{
       _followerCount = 1320;
       _likesCount = 120;
       _isFollowing = false;
+      _isLiking = false;
     });
   }
 }
