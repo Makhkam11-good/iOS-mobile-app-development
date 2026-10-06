@@ -8,6 +8,8 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  bool isFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +35,31 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
                         fit: BoxFit.contain,
                         errorBuilder: _imageErrorBuilder,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 16,
+                    right: 16,
+                    child: Material(
+                      color: Colors.white,
+                      shape: const CircleBorder(),
+                      elevation: 3,
+                      child: IconButton(
+                        tooltip: 'Bookmark product',
+                        onPressed: () {
+                          setState(() {
+                            isFavorite = !isFavorite;
+                          });
+                        },
+                        icon: Icon(
+                          isFavorite
+                              ? Icons.bookmark
+                              : Icons.bookmark_border,
+                          color: isFavorite
+                              ? Theme.of(context).colorScheme.primary
+                              : Colors.black87,
+                        ),
                       ),
                     ),
                   ),
