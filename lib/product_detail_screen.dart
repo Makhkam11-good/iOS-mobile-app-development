@@ -9,6 +9,7 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   bool isFavorite = false;
+  int cartCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     width: double.infinity,
                     height: 300,
                     child: ColoredBox(
-                      color: Color(0xfff2f4f7),
+                      color: const Color(0xfff2f4f7),
                       child: Image(
                         image: NetworkImage(
                           'https://images.unsplash.com/photo-1542291026-7eec264c27ff',
@@ -165,6 +166,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         color: Colors.grey.shade700,
                       ),
                     ),
+                    if (cartCount > 0) ...[
+                      const SizedBox(height: 20),
+                      Center(
+                        child: Text(
+                          'Items in cart: $cartCount',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                     const SizedBox(height: 24),
                   ],
                 ),
@@ -182,7 +195,17 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 child: SizedBox(
                   height: 55,
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        cartCount++;
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Product added to cart!'),
+                          duration: Duration(seconds: 1),
+                        ),
+                      );
+                    },
                     icon: const Icon(Icons.shopping_cart),
                     label: const Text(
                       'Add to Cart',
