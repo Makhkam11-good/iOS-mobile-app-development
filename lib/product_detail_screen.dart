@@ -146,6 +146,26 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         const Chip(label: Text('Men')),
                       ],
                     ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Description',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Nike Air Max 270 combines modern style with '
+                      'comfortable cushioning. It is designed for everyday '
+                      'use, running and an active lifestyle.',
+                      style: TextStyle(
+                        fontSize: 16,
+                        height: 1.5,
+                        color: Colors.grey.shade700,
+                      ),
+                    ),
+                    const SizedBox(height: 24),
                   ],
                 ),
               ),
