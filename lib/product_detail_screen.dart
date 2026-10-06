@@ -123,6 +123,29 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Categories',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        Chip(
+                          avatar: const Icon(Icons.checkroom, size: 18),
+                          label: const Text('Nike'),
+                        ),
+                        const Chip(label: Text('Shoes')),
+                        const Chip(label: Text('Running')),
+                        const Chip(label: Text('Sport')),
+                        const Chip(label: Text('Men')),
+                      ],
+                    ),
                   ],
                 ),
               ),
