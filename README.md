@@ -20,3 +20,19 @@ flutter run
 ```bash
 flutter test
 ```
+
+## Lab 6 - User Registration & Form Validation
+
+The complete Lab 6 Flutter project is in [lab6_user_registration](lab6_user_registration/).
+It includes real-time and submit-time validation, role selection, mandatory terms,
+success feedback, automated widget tests, and an Android screenshot.
+
+Run Lab 6 separately from the repository root:
+
+```bash
+cd lab6_user_registration
+flutter pub get
+flutter run
+```
+
+See the [Lab 6 README](lab6_user_registration/README.md) for features and test commands.
